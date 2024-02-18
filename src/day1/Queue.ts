@@ -15,12 +15,11 @@ export default class Queue<T> {
 
   enqueue(item: T): void {
     const node = { value: item };
-    if (this.tail) {
+    if (!this.tail) {
+      this.head = this.tail = node;
+    } else {
       this.tail.next = node;
-    }
-    this.tail = node;
-    if (!this.head) {
-      this.head = node;
+      this.tail = node;
     }
     this.length++;
   }
