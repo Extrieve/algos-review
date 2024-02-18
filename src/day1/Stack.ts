@@ -15,8 +15,9 @@ export default class Stack<T> {
   push(item: T): void {
     if (!this.head) {
       this.head = { value: item };
+    } else {
+      this.head = { value: item, next: this.head };
     }
-    this.head = { value: item, next: this.head };
     this.length++;
   }
 
